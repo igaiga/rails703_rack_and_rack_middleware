@@ -20,3 +20,7 @@ module Rails703RackAndRackMiddleware
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+class FooException < Exception
+end
+Rails.application.config.action_dispatch.rescue_responses.merge!({ "FooException" => :not_found })
